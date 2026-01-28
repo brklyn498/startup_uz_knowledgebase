@@ -12,8 +12,8 @@ import {
 } from 'lucide-react';
 
 interface SidebarProps {
-    lang: 'uz' | 'ru';
-    setLang: (lang: 'uz' | 'ru') => void;
+    lang: 'uz' | 'ru' | 'uz_cyr';
+    setLang: (lang: 'uz' | 'ru' | 'uz_cyr') => void;
     activeSection: string;
     setActiveSection: (id: string) => void;
 }
@@ -66,11 +66,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
             <div className="p-6 mt-auto">
                 <button
-                    onClick={() => setLang(lang === 'uz' ? 'ru' : 'uz')}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl glass hover:bg-white/10 transition-colors border border-white/10"
+                    onClick={() => {
+                        if (lang === 'uz') setLang('uz_cyr');
+                        else if (lang === 'uz_cyr') setLang('ru');
+                        else setLang('uz');
+                    }}
+                    className="w-full flex items-center gap-3 p-4 rounded-xl hover:bg-white/5 transition-colors text-gray-400 font-bold"
                 >
-                    <Languages size={18} />
-                    <span className="font-bold text-xs tracking-widest uppercase">{t.lang}</span>
+                    <Languages size={20} />
+                    <span>{lang === 'uz' ? 'UZ (Lotin)' : lang === 'uz_cyr' ? 'ЎЗ (Кирилл)' : 'RU (Рус)'}</span>
                 </button>
             </div>
         </aside>

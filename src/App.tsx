@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { content } from './data/content';
 import { Sidebar } from './components/Sidebar';
-import { DataCard, SectionHeader } from './components/Shared';
+import { DataCard, SectionHeader, Modal } from './components/Shared';
 import { AlertTriangle, CheckCircle2, XCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type ChecklistItem = { id: string; label: string };
 
 function App() {
-  const [lang, setLang] = useState<'uz' | 'ru'>('uz');
+  const [lang, setLang] = useState<'uz' | 'ru' | 'uz_cyr'>('uz');
   const [activeSection, setActiveSection] = useState('overview');
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [selectedCard, setSelectedCard] = useState<any | null>(null);
 
   const t = content[lang];
 
@@ -161,7 +162,7 @@ function App() {
             <SectionHeader title={t.venture.title} />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {t.venture.items.map((item, i) => (
-                <DataCard key={i} {...item} />
+                <DataCard key={i} {...item} onClick={() => setSelectedCard(item)} />
               ))}
             </div>
           </div>
@@ -172,7 +173,7 @@ function App() {
             <SectionHeader title={t.bpo.title} />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {t.bpo.items.map((item, i) => (
-                <DataCard key={i} {...item} />
+                <DataCard key={i} {...item} onClick={() => setSelectedCard(item)} />
               ))}
             </div>
           </div>
@@ -183,7 +184,7 @@ function App() {
             <SectionHeader title={t.future.title} />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {t.future.items.map((item, i) => (
-                <DataCard key={i} {...item} />
+                <DataCard key={i} {...item} onClick={() => setSelectedCard(item)} />
               ))}
             </div>
           </div>
@@ -214,6 +215,11 @@ function App() {
           </motion.div>
         </AnimatePresence>
       </main>
+      <Modal
+        isOpen={!!selectedCard}
+        onClose={() => setSelectedCard(null)}
+        item={selectedCard}
+      />
     </div>
   );
 }

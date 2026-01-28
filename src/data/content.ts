@@ -5,6 +5,7 @@ export type FeatureItem = {
     date?: string;
     source: string;
     tags?: string[];
+    extendedInfo?: string;
 };
 
 export type Content = {
@@ -51,7 +52,228 @@ export type Content = {
     };
 };
 
-export const content: Record<"uz" | "ru", Content> = {
+export const content: Record<"uz" | "ru" | "uz_cyr", Content> = {
+    uz_cyr: {
+        nav: {
+            title: "Стартап Портал",
+            lang: "UZ",
+            sections: [
+                { id: "overview", label: "Умумий" },
+                { id: "funding", label: "Грантлар ва Пул" },
+                { id: "regulatory", label: "Қоидаlar ва Йўл харитаси" },
+                { id: "tax", label: "Солиқ ва Имтиёзлар" },
+                { id: "venture", label: "Инвестиция (VC)" },
+                { id: "bpo", label: "Экспорт (BPO)" },
+                { id: "future", label: "Келажак (2025-2026)" },
+            ],
+        },
+        overview: {
+            title: "Экотизим Кўрсаткичлари",
+            stats: [
+                { label: "IT Экспорт Мақсади", value: "$100M+", detail: "2023 йил якунигача" },
+                { label: "B2G Бозор Имконияти", value: "214+", detail: "Янги давлат АКТ тизимлари" },
+                { label: "Венчур Бозори", value: "$17.5M", detail: "2024 йилда 3х ўсиш" },
+                { label: "Стартаплар Сони", value: "750+", detail: "Республика бўйлаб" },
+                { label: "E-Gov Фойдаланувчилари", value: "4.0M", detail: "Хусусий сектор иштирокида" },
+            ],
+        },
+        funding: {
+            title: "Маблағ ажратиш ва Грантлар",
+            items: [
+                {
+                    title: "Президент Tech Award",
+                    value: "$1,000,000",
+                    description: "Энг яхши стартап лойиҳалар учун йиллик танлов. 5 та асосий йўналиш бўйича мукофотлар.",
+                    source: "ПҚ-357, 7-банд",
+                    tags: ["Йиллик", "Валютада"],
+                },
+                {
+                    title: "Стартапларни Қўллаб-қувватлаш Гранти",
+                    value: "1 млрд сўмгача",
+                    description: "Дастурий маҳсулот яратиш ва экспортга йўналтириш учун ажратилади. Инновацион ривожланиш агентлиги орқали.",
+                    source: "ПҚ-357, 8-банд",
+                    tags: ["Грант", "Экспорт"],
+                },
+                {
+                    title: "Ёш Тадбиркорлар Жамғармаси",
+                    value: "60 млрд сўм",
+                    description: "Дастлабки босқичда стартапларни молиялаштириш учун ажратилган умумий маблағ.",
+                    source: "ПҚ-357, 8-банд",
+                },
+                {
+                    title: "Чет эл IT хизматлари учун ҚҚС",
+                    value: "0% Имтиёз",
+                    description: "Норезидентлардан олинадиган IT хизматлар учун ҚҚС бўйича имтиёзлар қўлланилиши.",
+                    source: "ПҚ-357, 14-банд",
+                    tags: ["Солиқ", "Норезидент"],
+                },
+            ],
+        },
+        regulatory: {
+            title: "Тартибга солиш ва Ислоҳотлар",
+            timeline: [
+                {
+                    title: "Антенна-мачта иншоотлари",
+                    date: "2022 йил август",
+                    description: "Мобил алоқа операторлари учун ер ажратиш жараёни соддалаштирилди.",
+                    source: "ПҚ-357, 3-банд",
+                },
+                {
+                    title: "Digital Office тизими",
+                    date: "2023 йил 1 январь",
+                    description: "Давлат органлари учун ягона ишчи муҳит (ҳужжат алмашинуви, видео-алоқа).",
+                    source: "ПҚ-357, 10-банд",
+                },
+                {
+                    title: "Рақамли Маълумотлар Платформаси",
+                    date: "2022 йил 1 октябрь",
+                    description: "Давлат маълумотларига тижорий кириш пуллик асосда йўлга қўйилди.",
+                    source: "ПҚ-357, 11-банд",
+                },
+                {
+                    title: "Телекоммуникация қурилиши (Тезкор)",
+                    date: "2022 йил 1 октябрь",
+                    description: "Лойиҳа-смета ҳужжатлари экспертизага топширилган кундан қурилишни бошлашга рухсат. Экспертиза муддати - 15 ку.",
+                    source: "ПҚ-357, 4-банд",
+                },
+                {
+                    title: "Санитария ва Ёнғин хавфсизлиги",
+                    date: "2-ҳафталик муддат",
+                    description: "Рухсатномалар My.gov.uz орқали 2 ҳафта ичида расмийлаштирилади.",
+                    source: "ПҚ-357, 4-банд",
+                },
+                {
+                    title: "Тартибга солиш 'Қумлоғи'",
+                    date: "2025 - 2027",
+                    description: "Рақамли стартаплар учун махсус ҳуқуқий режим - қонунчилик чекловларисиз тест ўтказиш имконияти.",
+                    extendedInfo: "Ушбу режим стартапларга янги рақамли маҳсулотларни (масалан, блокчейн ёки финтех ечимлар) амалдаги норматив ҳужжатларга зид келса ҳам, махсус назорат остида синаб кўриш имконини беради.",
+                    source: "ПҚ-357 (янги таҳрир)",
+                    tags: ["Sandbox", "Digital"],
+                },
+            ],
+        },
+        tax: {
+            title: "Солиқ Режими Ўзгаришлари (ПҚ-388)",
+            warning: "Критик Ўзгариш",
+            deadline: "Муҳим Муддатлар:",
+            date: "2026-2027",
+            details: "Экспорт талаблари жорий этилади: 2026 йил апрелдан мин. 20%, 2027 йилдан мин. 35%. Тўлов ва Marketplace ўзгаришлари 2026 апрелдан.",
+            affectedGroups: [
+                "Тўлов ташкилотлари (Payment organizations)",
+                "Тўлов тизими операторлари",
+                "Маркетплейслар (Электрон тўлов платформалари)",
+                "Микромолия ташкилотлари",
+                "IT Park Резидентлари (юқоридагилар)",
+                "Cyber-Inno T-Park Резидентлари",
+                "Inno Texnopark Резидентлари",
+            ],
+            checklistTitle: "Сизнинг лойиҳангиз шулардан бирими?",
+            safeMessage: "Хавфсиз: Сизнинг фаолиятингизга бу чеклов таъсир қилмайди.",
+            dangerMessage: "ДИҚҚАТ: 2026 йил апрелдан имтиёзлар бекор бўлади!",
+            checklist: [
+                { id: "payment", label: "Тўлов ташкилоти" },
+                { id: "operator", label: "Тўлов тизими оператори" },
+                { id: "marketplace", label: "Маркетплейс" },
+                { id: "mfo", label: "Микромолия ташкилоти" },
+            ],
+        },
+        bpo: {
+            title: "Масофавий хизматлар (BPO) имкониятлари",
+            items: [
+                {
+                    title: "BPO Марказлари",
+                    description: "Республиканинг барча ҳудудларида масофавий хизмат кўрсатиш марказлари ташкил этилади. Замонавий бино ва узлуксиз электр билан таъминланади.",
+                    source: "ПҚ-357, 5-банд",
+                },
+                {
+                    title: "Компьютер ускуналари",
+                    description: "Ёшлар ишлари агентлиги марказларни замонавий компьютерлар билан таъминлайди.",
+                    source: "ПҚ-357, 5-банд",
+                },
+                {
+                    title: "Хорижий буюртмалар",
+                    description: "АКТ вазирлиги марказларга хорижий бозорлардан мунтазам буюртмалар жалб этади.",
+                    source: "ПҚ-357, 8-банд",
+                },
+                {
+                    title: "Битирувчилар учун Грантлар",
+                    value: "$100,000,000",
+                    description: "Олий таълим битирувчиларининг стартап лойиҳалари учун ажратилган махсус жамғарма.",
+                    source: "ПҚ-61 (2025 йил 14-февраль)",
+                    tags: ["Битирувчилар", "Грант"],
+                },
+                {
+                    title: "Энг яхши ижодий ғоя",
+                    value: "300 млн сўм",
+                    description: "Талабалар ва ёшлар ўртасида ўтказиладиган инновацион танлов гранти.",
+                    source: "ПҚ-60 (2025 йил 14-февраль)",
+                },
+            ],
+        },
+        future: {
+            title: "Келажак Истиқболлари (2025-2026)",
+            items: [
+                {
+                    title: "Talim-Krediti.mf.uz ишга тушиши",
+                    date: "2026 йил 1 январь",
+                    description: "Таълим кредити олиш учун аризалар тўлиқ онлайн (My.gov.uz ва махсус портал) орқали амалга оширилади.",
+                    source: "ПҚ-388, 24-банд",
+                    tags: ["EdTech", "Online"],
+                },
+                {
+                    title: "Электрон Бюджет Буюртмалари",
+                    date: "2026 йил 1 август",
+                    description: "Бюджет ташкилотлари барча харажат буюртмаларини электрон шаклда шакллантиришга тўлиқ ўтади.",
+                    source: "ПҚ-388, 25-банд",
+                    tags: ["GovTech", "Digital"],
+                },
+                {
+                    title: "Суверен Халқаро Облигациялар",
+                    date: "2026 йил давомида",
+                    description: "Бюджет тешигини ёпиш ва инвестиция учун навбатдаги халқаро облигациялар чиқарилиши.",
+                    source: "ПҚ-388, 25-банд",
+                    tags: ["Молия", "Инвестиция"],
+                },
+                {
+                    title: "Ижтимоий Солиқ Ислоҳоти",
+                    date: "2026 йил 1 январь",
+                    description: "Янги ижтимоий солиқ ставкалари ва ҳисоб-китоб тартибининг жорий этилиши.",
+                    source: "ПҚ-388, 4-банд",
+                    tags: ["Солиқ"],
+                },
+            ],
+        },
+        venture: {
+            title: "Венчур ва Инвестициялар",
+            items: [
+                {
+                    title: "Хорижий VC Бонус",
+                    value: "$100,000",
+                    description: "Агар стартап хорижий венчур фондидан $50M ва ундан ортиқ инвестиция жалб қилса, давлатдан рағбатлантирувчи грант.",
+                    source: "ПҚ-357 (2024)",
+                    tags: ["Investment", "Reward"],
+                },
+                {
+                    title: "UzVC Миллий Жамғармаси",
+                    value: "100 млрд сўм",
+                    description: "Портфель лойиҳаларни молиялаштириш учун қўшимча маблағ ажратиш.",
+                    source: "ПҚ-357 (Октябрь 2024)",
+                },
+                {
+                    title: "Банк Венчур Фондлари",
+                    description: "Давлат улушига эга банкларга венчур фондлари ва стартап-студиялар ташкил этиш ҳуқуқи берилди.",
+                    source: "Президент Фармони (2024)",
+                },
+                {
+                    title: "Digital Wealthy",
+                    value: "0% PIT",
+                    description: "Хорижий инвесторлар учун махсус режим: $50k тўлов эвазига хорижий даромадлардан солиқ озодлиги (мин 30 кун stay).",
+                    source: "Янги Низом (2026 режаси)",
+                    tags: ["Foreigners", "Expats"],
+                },
+            ],
+        },
+    },
     uz: {
         nav: {
             title: "Startap Portal",
@@ -83,6 +305,7 @@ export const content: Record<"uz" | "ru", Content> = {
                     title: "Prezident Tech Award",
                     value: "$1,000,000",
                     description: "Eng yaxshi startap loyihalar uchun yillik tanlov. 5 ta asosiy yo'nalish bo'yicha mukofotlar.",
+                    extendedInfo: "Mukofot jamg'armasi $1 million qilib belgilangan bo'lib, har bir yo'nalish bo'yicha g'oliblar quyidagicha taqdirlanadi: 1-o'rin $100k, 2-o'rin $50k, 3-o'rin $30k. Asosiy yo'nalishlar: Sun'iy intellekt, Ijtimoiy texnologiyalar, Kibersport, Tadbirkorlik va moliyaviy texnologiyalar.",
                     source: "PQ-357, 7-band",
                     tags: ["Yillik", "Valyutada"],
                 },
@@ -90,6 +313,7 @@ export const content: Record<"uz" | "ru", Content> = {
                     title: "Startaplarni Qo'llab-quvvatlash Granti",
                     value: "1 mlrd so'mgacha",
                     description: "Dasturiy mahsulot yaratish va eksportga yo'naltirish uchun ajratiladi. Innovatsion rivojlanish agentligi orqali.",
+                    extendedInfo: "Grant mablag'lari MVP (minimum viable product) yaratish va uni xalqaro bozorga olib chiqish xarajatlarini qoplash uchun beriladi. Talabgorlar kamida 6 oylik faoliyat tarixiga va aniq eksport rejasiga ega bo'lishlari shart.",
                     source: "PQ-357, 8-band",
                     tags: ["Grant", "Eksport"],
                 },
@@ -145,6 +369,7 @@ export const content: Record<"uz" | "ru", Content> = {
                     title: "Tartibga solish 'Qumlog'i'",
                     date: "2025 - 2027",
                     description: "Raqamli startaplar uchun maxsus huquqiy rejim - qonunchilik cheklovlarisiz test o'tkazish imkoniyati.",
+                    extendedInfo: "Ushbu rejim doirasida startaplar amaldagi qonunchilikda ko'zda tutilmagan yoki taqiqlangan yangi raqamli xizmatlarni (masalan, kripto-aktivlar yoki yangi Fintech yechimlar) cheklangan hududda va vaqt davomida test qilishlari mumkin.",
                     source: "PQ-357 (yangi tahrir)",
                     tags: ["Sandbox", "Digital"],
                 },
@@ -303,6 +528,7 @@ export const content: Record<"uz" | "ru", Content> = {
                     title: "President Tech Award",
                     value: "$1,000,000",
                     description: "Ежегодный конкурс лучших стартапов. Призы по 5 основным направлениям.",
+                    extendedInfo: "Призовой фонд в $1 млн распределяется по 5 направлениям: AI, Social Tech, Cyber Sport, FinTech и EdTech. Победители получают $100k (1-е место), $50k (2-е место) и $30k (3-е место). Конкурс направлен на поддержку инноваций мирового уровня.",
                     source: "ПП-357, пункт 7",
                     tags: ["Ежегодно", "В валюте"],
                 },
@@ -310,6 +536,7 @@ export const content: Record<"uz" | "ru", Content> = {
                     title: "Грант на поддержку стартапов",
                     value: "до 1 млрд сум",
                     description: "Выделяется на создание прототипа и экспортного ПО через Агентство инновационного развития.",
+                    extendedInfo: "Средства предоставляются компаниям-резидентам для покрытия расходов на R&D, закупку облачных мощностей и маркетинг на внешних рынках. Обязательным условием является наличие экспортного потенциала.",
                     source: "ПП-357, пункт 8",
                     tags: ["Грант", "Экспорт"],
                 },
@@ -365,6 +592,7 @@ export const content: Record<"uz" | "ru", Content> = {
                     title: "Регуляторная 'Песочница'",
                     date: "2025 - 2027",
                     description: "Особый правовой режим для цифровых стартапов — возможность тестирования без законодательных ограничений.",
+                    extendedInfo: "Песочница позволяет обходить некоторые нормы действующего законодательства для тестирования инновационных продуктов в сфере финтеха, крипто-активов и ИИ под наблюдением регулятора.",
                     source: "ПП-357 (новая ред.)",
                     tags: ["Sandbox", "Digital"],
                 },
