@@ -16,7 +16,7 @@ export type Content = {
     };
     overview: {
         title: string;
-        stats: { label: string; value: string; detail: string }[];
+        stats: FeatureItem[];
     };
     funding: {
         title: string;
@@ -68,13 +68,29 @@ export const content: Record<"uz" | "ru" | "uz_cyr", Content> = {
             ],
         },
         overview: {
-            title: "Экотизим Кўрсаткичлари",
+            title: "Экотизим Кўрсаткичлари (2026)",
             stats: [
-                { label: "IT Экспорт Мақсади", value: "$100M+", detail: "2023 йил якунигача" },
-                { label: "B2G Бозор Имконияти", value: "214+", detail: "Янги давлат АКТ тизимлари" },
-                { label: "Венчур Бозори", value: "$17.5M", detail: "2024 йилда 3х ўсиш" },
-                { label: "Стартаплар Сони", value: "750+", detail: "Республика бўйлаб" },
-                { label: "E-Gov Фойдаланувчилари", value: "4.0M", detail: "Хусусий сектор иштирокида" },
+                {
+                    title: "IT Экспорт Мақсади",
+                    value: "$1.0B",
+                    description: "2026 йил якунигача бўлган асосий кўрсаткич. Ўзбекистонни минтақавий IT хабга айлантириш.",
+                    extendedInfo: "Давлат стратегиясига кўра, 2026 йил охиригача IT-хизматлар экспорти $1 миллиарддан ошиши кутилмоқда. Бу асосан BPO хизматлари ва дастурий маҳсулотлар экспорти ҳисобига амалга оширилади.",
+                    source: "Рақамли Ўзбекистон-2026"
+                },
+                {
+                    title: "IT Мутахассислар",
+                    value: "100,000+",
+                    description: "Юқори малакали ва халқаро сертификатга эга бўлган кадрлар сони.",
+                    extendedInfo: "Айни пайтда 'Бир миллион дастурчи' лойиҳаси ва IT-академиялар тизими орқали йиллик 25-30 минг янги кадрлар бозорга чиқиши таъминланмоқда.",
+                    source: "ИТ-Парк Ҳисоботи 2025"
+                },
+                {
+                    title: "Стартаплар Сони",
+                    value: "1,500+",
+                    description: "Рўйхатдан ўтган ва фаол стартап лойиҳалар.",
+                    extendedInfo: "2026 йилга келиб стартап экотизимида сифат ўзгариши кутилмоқда. Асосан FinTech, EdTech ва GovTech йўналишлари етакчилик қилмоқда.",
+                    source: "Инновацион Ривожланиш Агентлиги"
+                },
             ],
         },
         funding: {
@@ -292,12 +308,29 @@ export const content: Record<"uz" | "ru" | "uz_cyr", Content> = {
             ],
         },
         overview: {
-            title: "Ekotizim Ko'rsatkichlari",
+            title: "Ekotizim Ko'rsatkichlari (2026)",
             stats: [
-                { label: "IT Eksport Maqsadi 2030", value: "$5.0B", detail: "Global outsourcing markazi" },
-                { label: "IT Ish o'rinlari", value: "300K", detail: "Yoshlar bandligi uchun" },
-                { label: "Startaplar Soni", value: "5000+", detail: "Ekotizimning 7x o'sishi" },
-                { label: "E-Gov Reytingi (BMT)", value: "Top 30", detail: "Raqamli Hukumat maqsadi" },
+                {
+                    title: "IT Eksport Maqsadi",
+                    value: "$1.0B",
+                    description: "2026 yil yakunigacha bo'lgan asosiy ko'rsatkich. O'zbekistonni mintaqaviy IT habga aylantirish.",
+                    extendedInfo: "Davlat strategiyasiga ko'ra, 2026 yil oxirigacha IT-xizmatlar eksporti $1 milliarddan oshishi kutilmoqda. Bu asosan BPO xizmatlari va dasturiy mahsulotlar eksporti hisobiga amalga oshiriladi.",
+                    source: "Raqamli O'zbekiston-2026"
+                },
+                {
+                    title: "IT Mutaxassislar",
+                    value: "100,000+",
+                    description: "Yuqori malakali va xalqaro sertifikatga ega bo'lgan kadrlar soni.",
+                    extendedInfo: "Ayni paytda 'Bir million dasturchi' loyihasi va IT-akademiyalar tizimi orqali yillik 25-30 ming yangi kadrlar bozorga chiqishi ta'minlanmoqda.",
+                    source: "IT-Park Hisoboti 2025"
+                },
+                {
+                    title: "Startaplar Soni",
+                    value: "1,500+",
+                    description: "Ro'yxatdan o'tgan va faol startap loyihalar.",
+                    extendedInfo: "2026 yilga kelib startap ekotizimida sifat o'zgarishi kutilmoqda. Asosan FinTech, EdTech va GovTech yo'nalishlari yetakchilik qilmoqda.",
+                    source: "Innovatsion Rivojlanish Agentligi"
+                },
             ],
         },
         funding: {
@@ -517,12 +550,29 @@ export const content: Record<"uz" | "ru" | "uz_cyr", Content> = {
             ],
         },
         overview: {
-            title: "Показатели Экосистемы",
+            title: "Показатели Экосистемы (2026)",
             stats: [
-                { label: "Цель IT-Экспорта 2030", value: "$5.0B", detail: "Глобальный хаб аутсорсинга" },
-                { label: "IT Рабочие места", value: "300K", detail: "Занятость молодежи" },
-                { label: "Кол-во Стартапов", value: "5000+", detail: "Рост экосистемы в 7 раз" },
-                { label: "Рейтинг E-Gov (ООН)", value: "Топ-30", detail: "Цель Цифрового Правительства" },
+                {
+                    title: "Цель IT-Экспорта",
+                    value: "$1.0B",
+                    description: "Основной показатель к концу 2026 года. Превращение Узбекистана в региональный IT-хаб.",
+                    extendedInfo: "Согласно государственной стратегии, к концу 2026 года объем экспорта IT-услуг ожидается превысить $1 миллиард. Это будет достигнуто в основном за счет экспорта услуг BPO и программных продуктов.",
+                    source: "Цифровой Узбекистан-2026"
+                },
+                {
+                    title: "IT-Специалисты",
+                    value: "100,000+",
+                    description: "Количество высококвалифицированных кадров с международными сертификатами.",
+                    extendedInfo: "В настоящее время через проект 'Один миллион программистов' и систему IT-академий ежегодно обеспечивается выход на рынок 25-30 тысяч новых кадров.",
+                    source: "Отчет IT-Park 2025"
+                },
+                {
+                    title: "Количество Стартапов",
+                    value: "1,500+",
+                    description: "Зарегистрированные и активные стартап-проекты.",
+                    extendedInfo: "К 2026 году ожидается качественное изменение в стартап-экосистеме. Лидирующие направления: FinTech, EdTech и GovTech.",
+                    source: "Агентство Инновационного Развития"
+                },
             ],
         },
         funding: {

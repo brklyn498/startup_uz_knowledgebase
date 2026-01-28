@@ -19,31 +19,22 @@ function App() {
     switch (activeSection) {
       case 'overview':
         return (
-          <div className="space-y-12">
+          <div className="space-y-8">
             <SectionHeader title={t.overview.title} />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {t.overview.stats.map((stat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="glass-card p-6 rounded-2xl border-white/5"
-                >
-                  <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">{stat.label}</div>
-                  <div className="text-4xl font-black text-white mb-2">{stat.value}</div>
-                  <div className="text-xs text-blue-400 font-medium">{stat.detail}</div>
-                </motion.div>
+                <DataCard key={i} {...stat} onClick={() => setSelectedCard(stat)} />
               ))}
             </div>
-            {/* Quick Summary Card */}
-            <div className="glass-card p-8 rounded-[2rem] border-blue-500/20 bg-blue-500/5">
-              <h3 className="text-xl font-bold mb-4">Ekotizim haqida / Об экосистеме</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Ushbu portal PQ-357 va PQ-388 qarorlari asosidagi ma'lumotlarni o'z ichiga oladi.
-                Asosiy maqsad - startaplar uchun yaratilgan imkoniyatlarni (grantlar, soddalashtirilgan tartiblar)
-                va yaqinlashib kelayotgan soliq o'zgarishlarini barcha uchun tushunarli holatda taqdim etish.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="glass-card p-8 rounded-3xl border-white/5 space-y-6">
+                <h3 className="text-xl font-bold mb-4">Ekotizim haqida / Об экосистеме</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Ushbu portal PQ-357 va PQ-388 qarorlari asosidagi ma'lumotlarni o'z ichiga oladi.
+                  Asosiy maqsad - startaplar uchun yaratilgan imkoniyatlarni (grantlar, soddalashtirilgan tartiblar)
+                  va yaqinlashib kelayotgan soliq o'zgarishlarini barcha uchun tushunarli holatda taqdim etish.
+                </p>
+              </div>
             </div>
           </div>
         );
