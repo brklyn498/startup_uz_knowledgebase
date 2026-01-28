@@ -16,39 +16,51 @@ interface DataCardProps {
 
 export const DataCard: React.FC<DataCardProps> = ({
     title, value, description, date, source, tags, onClick
-}) => (
-    <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        onClick={onClick}
-        className="glass-card p-6 rounded-2xl border-white/5 space-y-4 hover:border-blue-500/30 transition-all cursor-pointer group"
-    >
-        <div className="flex justify-between items-start gap-4">
-            <div className="space-y-1">
-                <h3 className="text-xl font-bold group-hover:text-blue-400 transition-colors">{title}</h3>
-                {date && <div className="text-xs text-gray-500 font-mono">{date}</div>}
-            </div>
-            {value && (
-                <div className="bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full text-blue-400 text-sm font-black whitespace-nowrap">
-                    {value}
+}) => {
+    const isArchive = tags?.some(t => ['Arxiv', 'Архив', 'Tarix', 'История'].includes(t));
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            onClick={onClick}
+            className={`glass-card p-6 rounded-2xl border-white/5 space-y-4 hover:border-blue-500/30 transition-all cursor-pointer group ${isArchive ? 'opacity-50 hover:opacity-80 grayscale-[0.5]' : ''
+                }`}
+        >
+            <div className="flex justify-between items-start gap-4">
+                <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                        <h3 className="text-xl font-bold group-hover:text-blue-400 transition-colors">{title}</h3>
+                        {isArchive && (
+                            <span className="text-[10px] bg-red-500/10 text-red-400 border border-red-500/20 px-1.5 py-0.5 rounded font-black uppercase">
+                                {tags?.find(t => ['Arxiv', 'Архив'].includes(t))}
+                            </span>
+                        )}
+                    </div>
+                    {date && <div className="text-xs text-gray-500 font-mono">{date}</div>}
                 </div>
-            )}
-        </div>
-
-        <p className="text-gray-400 text-sm line-clamp-2">{description}</p>
-
-        <div className="pt-4 flex flex-wrap gap-2 items-center justify-between border-t border-white/5">
-            <div className="flex flex-wrap gap-2">
-                {tags?.map((tag, i) => (
-                    <span key={i} className="text-[10px] uppercase font-black tracking-tighter bg-white/5 px-2 py-0.5 rounded text-gray-400">
-                        {tag}
-                    </span>
-                ))}
+                {value && !isArchive && (
+                    <div className="bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full text-blue-400 text-sm font-black whitespace-nowrap">
+                        {value}
+                    </div>
+                )}
             </div>
-            <div className="text-[10px] font-mono text-gray-600 truncate max-w-[120px]">{source}</div>
-        </div>
-    </motion.div>
-);
+
+            <p className="text-gray-400 text-sm line-clamp-2">{description}</p>
+
+            <div className="pt-4 flex flex-wrap gap-2 items-center justify-between border-t border-white/5">
+                <div className="flex flex-wrap gap-2">
+                    {tags?.map((tag, i) => (
+                        <span key={i} className="text-[10px] uppercase font-black tracking-tighter bg-white/5 px-2 py-0.5 rounded text-gray-400">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+                <div className="text-[10px] font-mono text-gray-600 truncate max-w-[120px]">{source}</div>
+            </div>
+        </motion.div>
+    );
+};
 
 export const Modal: React.FC<{
     isOpen: boolean;
