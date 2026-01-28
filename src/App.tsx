@@ -44,7 +44,7 @@ function App() {
             <SectionHeader title={t.funding.title} />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {t.funding.items.map((item, i) => (
-                <DataCard key={i} {...item} />
+                <DataCard key={i} {...item} onClick={() => setSelectedCard(item)} />
               ))}
             </div>
           </div>
@@ -63,7 +63,7 @@ function App() {
                     {i + 1}
                   </div>
                   <div className="flex-1 pb-12">
-                    <DataCard {...item} />
+                    <DataCard {...item} onClick={() => setSelectedCard(item)} />
                   </div>
                 </div>
               ))}
